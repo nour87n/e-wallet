@@ -1,0 +1,68 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@200..800&family=Mynerve&family=Outfit:wght@100..900&family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=Bebas+Neue&family=Manrope:wght@200..800&family=Mynerve&family=Outfit:wght@100..900&family=Reddit+Mono:wght@200..900&family=Rock+Salt&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.mynerve-regular {
+  font-family: "Mynerve", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.arsenal-regular {
+  font-family: "Arsenal", sans-serif;
+  font-weight: 400;
+  
+}
+
+
+
+.custom-container{
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Extra small  */
+@media (max-width: 576px) {
+  .custom-container {
+    width: 100%; 
+  }
+}
+
+/* Small  */
+@media (min-width: 576px) {
+  .custom-container {
+    width: 540px; /* Adjust this value as needed */
+  }
+}
+
+/* Medium */
+@media (min-width: 768px) {
+  .custom-container {
+    width: 720px; 
+  }
+}
+
+/* Large */
+@media (min-width: 992px) {
+  .custom-container {
+    width: 900px; 
+  }
+}
+
+/* Extra large */
+@media (min-width: 1200px) {
+  .custom-container {
+    width: 960px; 
+  }
+}
+/* XX large  */
+@media (min-width: 1400px) {
+  .custom-container {
+    width: 1200px; 
+  }
+}
+
