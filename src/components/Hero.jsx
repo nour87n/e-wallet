@@ -7,10 +7,10 @@ import { FaAppStore } from "react-icons/fa";
 const Hero = () => {
   return (
     <div className="bg-white pb-4   ">
-      <div className=" custom-container flex ">
+      <div className=" custom-container md:flex   ">
         {/* text */}
-        <div className="arsenal-regular pt-[8rem] flex flex-col gap-4 text-[#44130b]   ">
-          <button className="rounded-full bg-[#fdd2cb] text-2xl font-semibold bg-opacity-50 text-nowrap px-3 flex items-center gap-1">
+        <div className="arsenal-regular md:pt-[8rem] pt-6 md:flex md:flex-col gap-4 text-[#44130b]   ">
+          <button className="rounded-full bg-[#fdd2cb] md:text-2xl font-semibold bg-opacity-50 text-nowrap px-3 flex items-center gap-1">
             <BsStars className="text-md text-[#44130b]" />
             Welcome to a Modern Financial Experience
           </button>
@@ -25,7 +25,7 @@ const Hero = () => {
           
           {/* app */}
           
-            <div className="flex gap-2 items-center  ">
+            <div className=" gap-2 items-center hidden md:block  ">
               <button>
                 <IoLogoGooglePlaystore className="text-[4rem]" />
               </button>
@@ -36,7 +36,7 @@ const Hero = () => {
           
         </div>
         {/* photo */}
-        <div className="w-[120rem]   ">
+        <div className="md:w-[120rem]   ">
           <img src={wallet} />
         </div>
       </div>

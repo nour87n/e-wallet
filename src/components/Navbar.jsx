@@ -5,14 +5,14 @@ import { GiWallet } from "react-icons/gi";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between pt-5 items-center pb-6 ">
+    <div className="flex justify-between pt-5 items-center md:pb-6 ">
       {/* logo */}
       <div className=" mynerve-regular flex items-center      ">
         <GiWallet className="text-4xl text-[#44130b]" />
         <p className="font-bold text-[3rem] text-[#44130b]">e-wallet .</p>
       </div>
       {/* list */}
-      <div>
+      <div className="hidden md:block ">
         <ul className="flex gap-4 arsenal-regular text-[#44130b] ">
           <a className="font-bold" href="/home">
             HOME
@@ -27,9 +27,11 @@ const Navbar = () => {
       </div>
       {/* button */}
       <div className="flex gap-3">
+        <Link to="/login">
         <button className="bg-[#7e2c1e] rounded-full px-2  hover:bg-[#ed5e46] arsenal-regular text-lg text-[#fee6e2]  ">
           Login
         </button>
+        </Link>
         <button className="bg-[#7e2c1e] rounded-full px-2  hover:bg-[#ed5e46] arsenal-regular text-lg text-[#fee6e2]  ">
           Register
         </button>
