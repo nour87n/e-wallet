@@ -19,9 +19,9 @@ const Aboutus = () => {
           </p>
         </div>
         {/* benifits */}
-        <div className="md:flex flex gap-4 flex-col md:flex-row md:gap-6 py-10 md:justify-between ">
+        <div className="flex gap-6 py-10 justify-between ">
           {/* secure */}
-          <div className=" arsenal-regular  flex flex-col gap-2 bg-[#fef6ee] rounded-xl p-2 items-center text-center md:bg-white ">
+          <div className=" arsenal-regular flex flex-col gap-2 ">
             <button className=" bg-[#b83916] rounded-full p-1 w-[3rem] flex justify-center ">
               <RiSecurePaymentFill className="text-4xl text-[#fdd2cb] " />
             </button>
@@ -35,7 +35,7 @@ const Aboutus = () => {
             </p>
           </div>
           {/* services */}
-          <div className=" arsenal-regular flex flex-col gap-2 bg-[#fef6ee] rounded-xl p-2 items-center text-center md:bg-white ">
+          <div className=" arsenal-regular flex flex-col gap-2 ">
             <button className=" bg-[#b83916] rounded-full p-1 w-[3rem] flex justify-center">
               <RiCustomerService2Fill className="text-4xl text-[#fdd2cb] " />
             </button>
@@ -47,7 +47,7 @@ const Aboutus = () => {
           </div>
 
           {/* easy */}
-          <div className=" arsenal-regular flex flex-col gap-2 bg-[#fef6ee] rounded-xl p-2 items-center text-center md:bg-white  ">
+          <div className=" arsenal-regular flex flex-col gap-2  ">
             <button className=" bg-[#b83916] rounded-full p-1 w-[3rem] flex justify-center">
               <FaChartPie  className="text-4xl text-[#fdd2cb] " />
             </button>
@@ -56,7 +56,7 @@ const Aboutus = () => {
             Effortlessly manage finances, track expenses, set budgets, and invest with our e-wallet app.
             </p>
           </div>
-          
+
         </div>
       </div>
     </div>

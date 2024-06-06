@@ -3,13 +3,13 @@ import { GiWallet } from "react-icons/gi";
 import { FaApple } from "react-icons/fa";
 import { PiFacebookLogoBold } from "react-icons/pi";
 import { CgMail } from "react-icons/cg";
-import register from '../assets/register.png'
+import register from "../assets/register.png";
 const Register = () => {
   return (
     <div className="bg-[#fef6ee] h-screen text-[#44130b] ">
       <div className=" custom-container md:flex md:w-4/5">
         <div className="hidden md:flex">
-          <img className="md:w-[35rem] md:h-[35rem]" src={register}/>
+          <img className="md:w-[35rem] md:h-[35rem]" src={register} />
         </div>
         <div className="flex flex-col pt-10">
           {/* logo */}
@@ -35,7 +35,7 @@ const Register = () => {
             {/* password */}
             <h1 className="font-bold text-2xl pr-[13rem]">Password:</h1>
             <input
-            type="password"
+              type="password"
               placeholder="type your password"
               className="rounded-md pl-4 bg-[#b83916] bg-opacity-40 py-2 text-xl w-[20rem] placeholder:text-[#44130b] placeholder:text-opacity-55  "
             />
@@ -66,7 +66,6 @@ const Register = () => {
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );

@@ -8,13 +8,24 @@ const Supported = () => {
       </div>
       {/* brands */}
       <div className="md:flex md:flex-row flex flex-col items-center gap-3 pt-6 pb-[5rem] ">
-        <div className=" bg-white w-[10rem] rounded-2xl py-[3rem] shadow-xl shadow-[#44130b] ">1</div>
-        <div className=" bg-white w-[10rem] rounded-2xl py-[3rem] shadow-xl shadow-[#44130b]">1</div>
-        <div className=" bg-white w-[10rem] rounded-2xl py-[3rem] shadow-xl shadow-[#44130b]">1</div>
-        <div className=" bg-white w-[10rem] rounded-2xl py-[3rem] shadow-xl shadow-[#44130b]">1</div>
-        <div className=" bg-white w-[10rem] rounded-2xl py-[3rem] shadow-xl shadow-[#44130b]">1</div>
-        <div className=" bg-white w-[10rem] rounded-2xl py-[3rem] shadow-xl shadow-[#44130b]">1</div>
-        
+        <div className=" bg-white w-[10rem] rounded-2xl py-[3rem] shadow-xl shadow-[#44130b] ">
+          1
+        </div>
+        <div className=" bg-white w-[10rem] rounded-2xl py-[3rem] shadow-xl shadow-[#44130b]">
+          1
+        </div>
+        <div className=" bg-white w-[10rem] rounded-2xl py-[3rem] shadow-xl shadow-[#44130b]">
+          1
+        </div>
+        <div className=" bg-white w-[10rem] rounded-2xl py-[3rem] shadow-xl shadow-[#44130b]">
+          1
+        </div>
+        <div className=" bg-white w-[10rem] rounded-2xl py-[3rem] shadow-xl shadow-[#44130b]">
+          1
+        </div>
+        <div className=" bg-white w-[10rem] rounded-2xl py-[3rem] shadow-xl shadow-[#44130b]">
+          1
+        </div>
       </div>
     </div>
   );
