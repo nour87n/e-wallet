@@ -7,26 +7,32 @@ import {
 import React from "react";
 import Home from "./Home/Home";
 import Login from "./authentication/Login";
-import LoginConfirmation from "./authentication/LoginConfirmation";
+
 import Register from "./authentication/Register.jsx";
 import RegisterConfirmation from "./authentication/RegisterConfirmation.jsx";
-import UserProfile from "./profile/UserProfile.jsx";
+
 import MainProfile from "./profile/MainProfile.jsx";
-import Cards from "./profile/Cards.jsx";
-import Setting from "./profile/Setting.jsx";
+
+
+
+import SuccessRegister from "./authentication/SuccessRegister.jsx";
+import UserSetting from "./profile/UserSetting.jsx";
+import SendMoney from "./profile/SendMoney.jsx";
+import Failed from "./profile/Failed.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
       <Route path="" element={<Home />} />
       <Route path="login" element={<Login />} />
-      <Route path="confirm-login" element={<LoginConfirmation />} />
+      <Route path="confirm-register" element={<SuccessRegister/>}/>
       <Route path="register" element={<Register />} />
       <Route path="confirm-register" element={<RegisterConfirmation />} />
-      <Route path="profile" element={<UserProfile />} />
+      <Route path="profile-setting" element={<UserSetting />} />
       <Route path="main-profile" element={<MainProfile />} />
-      <Route path="cards" element={<Cards/>}/>
-      <Route path="setting" element={<Setting/>}/>
+      <Route path="send-money" element={<SendMoney/>}/>
+      
+      <Route path="error" element={<Failed/>}/>
     </Route>
   )
 );

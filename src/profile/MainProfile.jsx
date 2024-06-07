@@ -6,11 +6,12 @@ import { LuArrowUpToLine } from "react-icons/lu";
 import { LuArrowDownToLine } from "react-icons/lu";
 import { FaMoneyBillTransfer } from "react-icons/fa6";
 import PhoneHeader from "../components/PhoneHeader";
+import { Link } from "react-router-dom";
 
 const MainProfile = () => {
   return (
-    <div className="h-screen">
-        <PhoneHeader/>
+    <div className="h-screen w-screen">
+      <PhoneHeader />
       <div className="bg-[#270685] pb-5 rounded-b-3xl">
         <div className=" custom-container">
           {/* top */}
@@ -22,7 +23,9 @@ const MainProfile = () => {
                 <p className="text-white text-wrap text-lg font-bold">Hello,</p>
                 <p className="text-white text-wrap text-lg font-bold">Nour</p>
               </div>
-              <FiSettings className="text-3xl text-white " />
+              <Link to="/profile-setting">
+                <FiSettings className="text-3xl text-white " />
+              </Link>
             </div>
             {/* card */}
             <div className="mt-4 h-[11rem] rounded-xl mx-4  bg-gradient-to-t from-[#6F45E9]  flex flex-col justify-between text-white">
@@ -53,32 +56,8 @@ const MainProfile = () => {
         </div>
       </div>
       {/* bottom */}
-      <div className=" custom-container">
-        <div className="flex flex-col pt-4 ">
-          {/* recent transfer */}
-          <div className="flex flex-col  ">
-            <p className="font-bold text-xl">Recent Transfer :</p>
-            <div className="flex ">
-              <img className="w-[20%] rounded-full" src={profileimage} />
-              <img className="w-[20%] rounded-full" src={profileimage} />
-              <img className="w-[20%] rounded-full" src={profileimage} />
-              <img className="w-[20%] rounded-full" src={profileimage} />
-              <img className="w-[20%] rounded-full" src={profileimage} />
-            </div>
-          </div>
-          {/* last transction */}
-          <div className="flex flex-col pt-4 pb-4">
-            <div className="flex justify-between">
-              <p className="font-bold text-xl">Latest Transactions :</p>
-              <p className="text-[#6B6B6B]">view all</p>
-            </div>
-            <div className="flex flex-col gap-3">
-              <div className="bg-gradient-to-t from-[#6F45E9] h-[4rem] "></div>
-              <div className="bg-gradient-to-t from-[#6F45E9] h-[4rem] "></div>
-              <div className="bg-gradient-to-t from-[#6F45E9] h-[4rem] "></div>
-            </div>
-          </div>
-        </div>
+      <div className=" custom-container mt-3">
+        <p className="font-bold text-2xl text-[#004b95] ">Last transction :</p>
       </div>
 
       <PhoneFooter />

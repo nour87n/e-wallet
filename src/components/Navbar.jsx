@@ -27,12 +27,12 @@ const Navbar = () => {
       {/* button */}
       <div className="flex gap-3">
         <Link to="/login">
-          <button className="bg-[#7e2c1e] rounded-full px-2  hover:bg-[#ed5e46] arsenal-regular text-lg text-[#fee6e2]  ">
+          <button className="bg-[#004b95] rounded-full px-2  hover:bg-[#b7cdd8] arsenal-regular text-lg text-[#fee6e2]  ">
             Login
           </button>
         </Link>
         <Link to="/register">
-        <button className=" bg-[#7e2c1e] rounded-full px-2  hover:bg-[#ed5e46] arsenal-regular text-lg text-[#fee6e2]  ">
+        <button className=" bg-[#004b95] rounded-full px-2  hover:bg-[#b7cdd8] arsenal-regular text-lg text-[#fee6e2]  ">
           Register
         </button>
         </Link>

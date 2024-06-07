@@ -10,10 +10,10 @@ import { CiEdit } from "react-icons/ci";
 import PhoneFooter from "../components/PhoneFooter";
 import PhoneHeader from "../components/PhoneHeader";
 
-const UserProfile = () => {
+const UserSetting = () => {
   return (
     <div className="">
-      <PhoneHeader/>
+      <PhoneHeader />
       <div className=" custom-container">
         <div className="md:border border-solid">
           {/* navbar */}
@@ -95,11 +95,11 @@ const UserProfile = () => {
           </div>
         </div>
       </div>
-      <div className=" border-t-2 mt-9">
+      <div className=" border-t-2">
         <PhoneFooter />
       </div>
     </div>
   );
 };
 
-export default UserProfile;
+export default UserSetting;

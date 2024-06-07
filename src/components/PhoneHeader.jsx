@@ -5,7 +5,7 @@ import { GiNetworkBars } from "react-icons/gi";
 
 const PhoneHeader = () => {
   return (
-    <div className=" custom-container py-3 flex  justify-between">
+    <div className=" custom-container md:hidden py-3 flex  justify-between">
       <h1 className="font-bold text-lg">10:23</h1>
       <div className="flex gap-3 text-lg">
         <IoMdBatteryFull />

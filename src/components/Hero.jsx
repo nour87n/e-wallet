@@ -10,14 +10,14 @@ const Hero = () => {
       <div className=" custom-container md:flex   ">
         {/* text */}
         <div className="arsenal-regular md:pt-[8rem] pt-6 md:flex md:flex-col gap-4 text-[#44130b]   ">
-          <button className="rounded-full bg-[#fdd2cb] md:text-2xl font-semibold bg-opacity-50 text-lg text-nowrap px-3 flex items-center gap-1">
-            <BsStars className=" text-md text-[#44130b]" />
+          <button className="rounded-full bg-[#b7cdd8] md:text-2xl font-semibold bg-opacity-50 text-lg text-[#004b95]  text-nowrap px-3 flex items-center gap-1">
+            <BsStars className=" text-md text-[#004b95]" />
             Welcome to a Modern Financial Experience
           </button>
-          <p className=" text-4xl font-bold ">
+          <p className=" text-4xl font-bold text-[#004b95] ">
             Managing Your Personal Finances Made Easier
           </p>
-          <p className="text-xl   text-wrap ">
+          <p className="text-xl   text-wrap text-[#566167] ">
             Elevate your financial experience with e-wallet. We simplify how you
             pay, transfer money, and manage your finances, giving you full
             control over your money.

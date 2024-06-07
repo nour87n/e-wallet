@@ -10,8 +10,8 @@ const Aboutus = () => {
       <div className=" flex flex-col custom-container justify-center ">
         {/* text */}
         <div className="flex  flex-col items-center gap-3 arsenal-regular">
-          <button className="rounded-full bg-[#fdd2cb] text-4xl  font-semibold bg-opacity-50  px-3 flex items-center  w-[29rem]">
-            <BsStars className="text-md text-[#44130b]" />
+          <button className="rounded-full bg-[#b7cdd8] text-2xl  justify-center  font-semibold bg-opacity-50  px-3 flex items-center  w-[21rem]">
+            <BsStars className="text-sm text-[#44130b]" />
             Awesome Benefit From Us
           </button>
           <p className="text-3xl text-wrap text-center w-[22rem] font-bold  ">
@@ -22,22 +22,22 @@ const Aboutus = () => {
         <div className="flex gap-6 py-10 justify-between ">
           {/* secure */}
           <div className=" arsenal-regular flex flex-col gap-2 ">
-            <button className=" bg-[#b83916] rounded-full p-1 w-[3rem] flex justify-center ">
-              <RiSecurePaymentFill className="text-4xl text-[#fdd2cb] " />
+            <button className=" bg-[#68adf2]  rounded-full p-1 w-[3rem] flex justify-center ">
+              <RiSecurePaymentFill className="text-4xl text-[#004b95] " />
             </button>
             <p className="font-bold text-xl text">
               Fast and Secure Transactions
             </p>
             <p className=" text-lg">
               Enjoy secure and instant payments anywhere, anytime.
-              <span className="font-bold bg-[#fdd2cb]"> e-wallet </span>
+              <span className="font-bold bg-[#b7cdd8]"> e-wallet </span>
               gives you peace of mind.
             </p>
           </div>
           {/* services */}
           <div className=" arsenal-regular flex flex-col gap-2 ">
-            <button className=" bg-[#b83916] rounded-full p-1 w-[3rem] flex justify-center">
-              <RiCustomerService2Fill className="text-4xl text-[#fdd2cb] " />
+            <button className=" bg-[#68adf2]  rounded-full p-1 w-[3rem] flex justify-center">
+              <RiCustomerService2Fill className="text-4xl text-[#004b95] " />
             </button>
             <p className="font-bold text-xl text">24/7 Customer Support</p>
             <p className=" text-lg">
@@ -48,8 +48,8 @@ const Aboutus = () => {
 
           {/* easy */}
           <div className=" arsenal-regular flex flex-col gap-2  ">
-            <button className=" bg-[#b83916] rounded-full p-1 w-[3rem] flex justify-center">
-              <FaChartPie  className="text-4xl text-[#fdd2cb] " />
+            <button className=" bg-[#68adf2] rounded-full p-1 w-[3rem] flex justify-center">
+              <FaChartPie  className="text-4xl text-[#004b95] " />
             </button>
             <p className="font-bold text-xl text">Easy Financial Management</p>
             <p className=" text-lg">

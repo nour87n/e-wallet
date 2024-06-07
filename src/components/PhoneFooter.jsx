@@ -1,34 +1,34 @@
 import React from "react";
-import { FaHome } from "react-icons/fa";
-import { ImProfile } from "react-icons/im";
-import { FaRegCreditCard } from "react-icons/fa6";
-import { IoMenu } from "react-icons/io5";
+import { PiMoneyLight } from "react-icons/pi";
 import { Link } from "react-router-dom";
+import { TbLogout } from "react-icons/tb";
+import { GrUserSettings } from "react-icons/gr";
+import { IoHomeOutline } from "react-icons/io5";
+import { CiCreditCard1 } from "react-icons/ci";
 
 const PhoneFooter = () => {
   return (
     <div>
-      <div className="flex items-center gap-[4rem] px-4 bg-opacity-45 ml-6 ">
+      <div className="flex justify-between md:border-t-2 md:border-gray-800 items-center  bg-opacity-45  custom-container pt-4 ">
         <Link to="/main-profile">
-          <button className="  w-[5rem]  p-2 ">
-            <FaHome className="text-[#191919] text-3xl hover:scale-150 " />
+          <button className="   ">
+            <IoHomeOutline className="text-[#191919] text-xl " />
           </button>
         </Link>
-        <Link to="/profile">
+        <Link to="/profile-setting">
           <button className="">
-            <ImProfile className="text-[#191919]   text-2xl hover:scale-150 " />
+            <GrUserSettings className="text-[#191919]   text-xl  " />
           </button>
         </Link>
-        <Link to="/cards">
+        <Link to="/send-money">
           <button>
-            <FaRegCreditCard className="text-[#191919]  text-3xl hover:scale-150" />
+            <PiMoneyLight className="text-[#191919]  text-2xl " />
           </button>
         </Link>
-        <Link to="/setting">
-          <button>
-            <IoMenu className="text-[#191919]  text-3xl hover:scale-150" />
-          </button>
-        </Link>
+
+        <button>
+          <TbLogout className="text-[#191919]  text-xl" />
+        </button>
       </div>
     </div>
   );
