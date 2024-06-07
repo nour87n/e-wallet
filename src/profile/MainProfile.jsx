@@ -1,53 +1,87 @@
-import React from "react";
+import React, { useState } from "react";
 import PhoneFooter from "../components/PhoneFooter";
 import profileimage from "../assets/profileimage.jpg";
 import { FiSettings } from "react-icons/fi";
-import { LuArrowUpToLine } from "react-icons/lu";
-import { LuArrowDownToLine } from "react-icons/lu";
+import { LuArrowUpToLine, LuArrowDownToLine } from "react-icons/lu";
 import { FaMoneyBillTransfer } from "react-icons/fa6";
 import PhoneHeader from "../components/PhoneHeader";
 import { Link } from "react-router-dom";
 
 const MainProfile = () => {
+  const [balance, setBalance] = useState(4333.75);
+  const [transactions, setTransactions] = useState([
+    { id: 1, type: "Top Up", amount: 100 },
+    { id: 2, type: "Withdraw", amount: 50 },
+    { id: 3, type: "Transfer", amount: 200 },
+  ]);
+
+  const handleTopUp = () => {
+    // Implementation goes here
+  };
+
+  const handleWithdraw = () => {
+    // Implementation goes here
+  };
+
+  const handleTransfer = () => {
+    // Implementation goes here
+  };
+
   return (
     <div className="h-screen w-screen">
       <PhoneHeader />
       <div className="bg-[#270685] pb-5 rounded-b-3xl">
-        <div className=" custom-container">
+        <div className="custom-container">
           {/* top */}
-          <div className="flex flex-col pt-2 ">
+          <div className="flex flex-col pt-2">
             {/* profile */}
-            <div className="flex items-center justify-between  ">
-              <img className="w-[14%] rounded-full" src={profileimage} />
-              <div className="flex flex-col pr-[14rem] ">
+            <div className="flex items-center justify-between">
+              <img
+                className="w-[14%] rounded-full"
+                src={profileimage}
+                alt="Profile"
+              />
+              <div className="flex flex-col pr-[14rem]">
                 <p className="text-white text-wrap text-lg font-bold">Hello,</p>
                 <p className="text-white text-wrap text-lg font-bold">Nour</p>
               </div>
               <Link to="/profile-setting">
-                <FiSettings className="text-3xl text-white " />
+                <FiSettings className="text-3xl text-white" />
               </Link>
             </div>
             {/* card */}
-            <div className="mt-4 h-[11rem] rounded-xl mx-4  bg-gradient-to-t from-[#6F45E9]  flex flex-col justify-between text-white">
+            <div className="mt-4 h-[11rem] rounded-xl mx-4 bg-gradient-to-t from-[#6F45E9] flex flex-col justify-between text-white">
               <div className="flex flex-col">
                 <h1 className="text-center font-bold pt-1 opacity-50">
                   Main Balance
                 </h1>
                 <p className="text-center text-2xl">
-                  <span className="font-bold text-4xl">4333</span>.75 $
+                  <span className="font-bold text-4xl">
+                    {balance.toFixed(2)}
+                  </span>{" "}
+                  $
                 </p>
               </div>
-              <div className="flex justify-center pb-8 text-xl gap-14 text-center items-center text-white   ">
-                <div className="flex  flex-col items-center">
+              <div className="flex justify-center pb-8 text-xl gap-14 text-center items-center text-white">
+                <div
+                  className="flex flex-col items-center"
+                  onClick={handleTopUp}
+                >
                   <LuArrowUpToLine className="font-bold text-2xl" />
                   <h1 className="font-bold text-sm">Top Up</h1>
                 </div>
-                <div className="flex  flex-col items-center">
+                <div
+                  className="flex flex-col items-center"
+                  onClick={handleWithdraw}
+                >
                   <LuArrowDownToLine className="font-bold text-2xl" />
                   <h1 className="font-bold text-sm">Withdraw</h1>
                 </div>
-                <div className="flex  flex-col items-center">
-                  <FaMoneyBillTransfer lassName="font-bold text-3xl" />
+                <div
+                  className="flex flex-col items-center"
+                  onClick={handleTransfer}
+                >
+                  <FaMoneyBillTransfer className="font-bold text-3xl" />
                   <h1 className="font-bold text-sm">Transfer</h1>
                 </div>
               </div>
@@ -56,10 +90,16 @@ const MainProfile = () => {
         </div>
       </div>
       {/* bottom */}
-      <div className=" custom-container mt-3">
-        <p className="font-bold text-2xl text-[#004b95] ">Last transction :</p>
+      <div className="custom-container mt-3">
+        <p className="font-bold text-2xl text-[#004b95]">Last transactions:</p>
+        <ul>
+          {transactions.map((transaction) => (
+            <li key={transaction.id} className="text-[#004b95]">
+              {transaction.type}: ${transaction.amount}
+            </li>
+          ))}
+        </ul>
       </div>
-
       <PhoneFooter />
     </div>
   );

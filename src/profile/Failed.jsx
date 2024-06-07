@@ -5,13 +5,13 @@ import { IoIosArrowBack } from "react-icons/io";
 import error from "../assets/error.png";
 const Failed = () => {
   return (
-    <div className="bg-[#e0e5e7] h-screen">
+    <div className="bg-[#e0e5e7] h-full pb-2">
       <PhoneHeader />
       <div className="felx flex-col">
         <Link to="/main-profile">
           <div className="text-[#004b95] flex font-bold items-center">
             <IoIosArrowBack className="font-bold text-2xl mt-2" />
-            <p>go back to home page</p>
+            <p>go back</p>
           </div>
         </Link>
         <div className="flex flex-col items-center">
