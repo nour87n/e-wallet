@@ -15,6 +15,7 @@ class Login extends Component {
       password: "",
       error: "",
     };
+
   }
 
   handleContinue = () => {

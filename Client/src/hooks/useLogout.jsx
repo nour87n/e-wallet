@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useAuthContext } from "./useAuthContext";
-import AxiosBaseURL from "../AxiosConfig";
+import axiosBaseURL from "../axiosConfig";
 
 const useLogout = () => {
   const [error, setError] = useState(null);

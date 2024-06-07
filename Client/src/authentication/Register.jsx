@@ -3,17 +3,20 @@ import { GiWallet } from "react-icons/gi";
 import { FaApple } from "react-icons/fa";
 import { PiFacebookLogoBold } from "react-icons/pi";
 import { CgMail } from "react-icons/cg";
-import register from "../assets/register.png";
+import registerImg from "../assets/register.png";
 import PhoneHeader from "../components/PhoneHeader";
+import useRegister from "../hooks/useRegister";
 
 const Register = () => {
-  const [name, setName] = useState("");
+  const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [phoneNumber , setPhoneNumber] = useState("");
   const [error, setError] = useState("");
+  const {register , setLoading} = useRegister()
 
-  const handleRegister = () => {
-    if (!name) {
+  const handleRegister = async () => {
+    if (!fullName) {
       setError("Name is required.");
     } else if (!email) {
       setError("Email is required.");
@@ -24,6 +27,8 @@ const Register = () => {
     } else {
       setError("");
       // Proceed with the registration logic here
+      console.log(email, password, fullName, phoneNumber)
+      await register(email, password, fullName, phoneNumber)
     }
   };
 
@@ -34,7 +39,7 @@ const Register = () => {
         <div className="hidden md:flex">
           <img
             className="md:w-[35rem] md:h-[35rem]"
-            src={register}
+            src={registerImg}
             alt="register"
           />
         </div>
@@ -49,6 +54,7 @@ const Register = () => {
             <p className="font-bold text-4xl text-[#5d439e]">
               Create Account :
             </p>
+
             {/* name */}
             <h1 className="font-bold text-2xl text-[#004b95] pr-[15.5rem]">
               Name:
@@ -56,9 +62,21 @@ const Register = () => {
             <input
               placeholder="type your full name"
               className="rounded-md pl-4 bg-[#658798] bg-opacity-40 py-2 text-xl w-[20rem] placeholder:text-[#004b95] placeholder:text-opacity-55"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
             />
+
+            {/* email */}
+            <h1 className="font-bold text-2xl text-[#004b95] pr-[15.5rem]">
+              Phone Number:
+            </h1>
+            <input
+              placeholder="type your email address"
+              className="rounded-md pl-4 bg-[#658798] bg-opacity-40 py-2 text-xl w-[20rem] placeholder:text-[#004b95] placeholder:text-opacity-55"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+            />
+
             {/* email */}
             <h1 className="font-bold text-2xl text-[#004b95] pr-[15.5rem]">
               Email:
@@ -69,6 +87,7 @@ const Register = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
+
             {/* password */}
             <h1 className="font-bold text-2xl text-[#004b95] pr-[13rem]">
               Password:
@@ -80,6 +99,7 @@ const Register = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+
           </div>
           {/* error message */}
           {error && <p className="text-red-500 text-center">{error}</p>}

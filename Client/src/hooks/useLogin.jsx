@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "./useAuthContext";
-import AxiosBaseURL from "../AxiosConfig";
+import axiosBaseURL from "../axiosConfig";
 
 export const useLogin = () => {
     const [error, setError] = useState(null);
@@ -18,7 +18,7 @@ export const useLogin = () => {
                 password,
               },
               {
-                withCredentials: true, 
+                withCredentials:true
               }
             );
             dispatch({ type: "LOGIN", payload: response.data });
