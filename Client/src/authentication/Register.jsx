@@ -67,7 +67,7 @@ const Register = () => {
             />
 
             {/* email */}
-            <h1 className="font-bold text-2xl text-[#004b95] pr-[15.5rem]">
+            <h1 className="font-bold text-2xl text-[#004b95] pr-[9rem]">
               Phone Number:
             </h1>
             <input

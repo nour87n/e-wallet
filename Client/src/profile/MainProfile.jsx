@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PhoneFooter from "../components/PhoneFooter";
 import profileimage from "../assets/profileimage.jpg";
 import { FiSettings } from "react-icons/fi";
@@ -6,26 +6,28 @@ import { LuArrowUpToLine, LuArrowDownToLine } from "react-icons/lu";
 import { FaMoneyBillTransfer } from "react-icons/fa6";
 import PhoneHeader from "../components/PhoneHeader";
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../hooks/useAuthContext";
+import axiosBaseURL from "../axiosBaseURL";
 
 const MainProfile = () => {
-  const [balance, setBalance] = useState(4333.75);
-  const [transactions, setTransactions] = useState([
-    { id: 1, type: "Top Up", amount: 100 },
-    { id: 2, type: "Withdraw", amount: 50 },
-    { id: 3, type: "Transfer", amount: 200 },
-  ]);
-
-  const handleTopUp = () => {
-    // Implementation goes here
-  };
-
-  const handleWithdraw = () => {
-    // Implementation goes here
-  };
-
-  const handleTransfer = () => {
-    // Implementation goes here
-  };
+  const [balance, setBalance] = useState("");
+  const [username, setUserName] = useState("");
+  const [transactions, setTransactions] = useState("");
+  const { state, dispatch } = useAuthContext();
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axiosBaseURL.get("/account/check-balance", {
+          withCredentials: true,
+        });
+        setBalance(res.data.balance);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  });
+  // console.log(state);
 
   return (
     <div className="h-screen w-screen">
@@ -43,7 +45,9 @@ const MainProfile = () => {
               />
               <div className="flex flex-col pr-[14rem]">
                 <p className="text-white text-wrap text-lg font-bold">Hello,</p>
-                <p className="text-white text-wrap text-lg font-bold">Nour</p>
+                <p className="text-white text-wrap text-lg font-bold">
+                  {state.user.fullName}
+                </p>
               </div>
               <Link to="/profile-setting">
                 <FiSettings className="text-3xl text-white" />
@@ -56,34 +60,26 @@ const MainProfile = () => {
                   Main Balance
                 </h1>
                 <p className="text-center text-2xl">
-                  <span className="font-bold text-4xl">
-                    {balance.toFixed(2)}
-                  </span>{" "}
-                  $
+                  <span className="font-bold text-4xl">{balance}</span> $
                 </p>
               </div>
               <div className="flex justify-center pb-8 text-xl gap-14 text-center items-center text-white">
-                <div
-                  className="flex flex-col items-center"
-                  onClick={handleTopUp}
-                >
+                <div className="flex flex-col items-center">
                   <LuArrowUpToLine className="font-bold text-2xl" />
                   <h1 className="font-bold text-sm">Top Up</h1>
                 </div>
-                <div
-                  className="flex flex-col items-center"
-                  onClick={handleWithdraw}
-                >
-                  <LuArrowDownToLine className="font-bold text-2xl" />
-                  <h1 className="font-bold text-sm">Withdraw</h1>
-                </div>
-                <div
-                  className="flex flex-col items-center"
-                  onClick={handleTransfer}
-                >
-                  <FaMoneyBillTransfer className="font-bold text-3xl" />
-                  <h1 className="font-bold text-sm">Transfer</h1>
-                </div>
+                <Link to="/add-balance">
+                  <div className="flex flex-col items-center" o>
+                    <LuArrowDownToLine className="font-bold text-2xl " />
+                    <h1 className="font-bold text-sm">Add balance</h1>
+                  </div>
+                </Link>
+                <Link to="/send-money">
+                  <div className="flex flex-col items-center">
+                    <FaMoneyBillTransfer className="font-bold text-3xl" />
+                    <h1 className="font-bold text-sm">Transfer</h1>
+                  </div>
+                </Link>
               </div>
             </div>
           </div>
@@ -93,11 +89,11 @@ const MainProfile = () => {
       <div className="custom-container mt-3">
         <p className="font-bold text-2xl text-[#004b95]">Last transactions:</p>
         <ul>
-          {transactions.map((transaction) => (
+          {/* {transactions.map((transaction) => (
             <li key={transaction.id} className="text-[#004b95]">
               {transaction.type}: ${transaction.amount}
             </li>
-          ))}
+          ))} */}
         </ul>
       </div>
       <PhoneFooter />

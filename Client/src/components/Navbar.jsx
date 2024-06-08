@@ -12,7 +12,7 @@ const Navbar = () => {
       </div>
       {/* list */}
       <div className="hidden md:block ">
-        <ul className="flex gap-4 arsenal-regular text-[#44130b] ">
+        <ul className="flex gap-4 arsenal-regular text-white ">
           <a className="font-bold" href="/home">
             HOME
           </a>

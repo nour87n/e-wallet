@@ -1,5 +1,5 @@
 import React from "react";
-import wallet from "../assets/wallet.png";
+import machine from "../assets/machine.png";
 import { BsStars } from "react-icons/bs";
 import { IoLogoGooglePlaystore } from "react-icons/io5";
 import { FaAppStore } from "react-icons/fa";
@@ -7,7 +7,7 @@ import { FaAppStore } from "react-icons/fa";
 const Hero = () => {
   return (
     <div className="bg-white pb-4   ">
-      <div className=" custom-container md:flex   ">
+      <div className=" custom-container md:flex  items-center  ">
         {/* text */}
         <div className="arsenal-regular md:pt-[8rem] pt-6 md:flex md:flex-col gap-4 text-[#44130b]   ">
           <button className="rounded-full bg-[#b7cdd8] md:text-2xl font-semibold bg-opacity-50 text-lg text-[#004b95]  text-nowrap px-3 flex items-center gap-1">
@@ -27,17 +27,17 @@ const Hero = () => {
           
             <div className=" gap-2 items-center hidden md:block  ">
               <button>
-                <IoLogoGooglePlaystore className="text-[4rem]" />
+                <IoLogoGooglePlaystore className="text-[4rem] text-[#566167]" />
               </button>
               <button>
-                <FaAppStore className="text-[4rem]" />
+                <FaAppStore className="text-[4rem] text-[#566167]" />
               </button>
             </div>
           
         </div>
         {/* photo */}
         <div className="md:w-[120rem]   ">
-          <img src={wallet} />
+          <img src={machine} />
         </div>
       </div>
     </div>

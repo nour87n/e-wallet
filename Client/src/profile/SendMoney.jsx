@@ -6,31 +6,47 @@ import { Link } from "react-router-dom";
 import PhoneFooter from "../components/PhoneFooter";
 import machine from "../assets/machine.png";
 import Failed from "../profile/Failed";
+import axiosBaseURL from "../axiosBaseURL";
 
 const SendMoney = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [amount, setAmount] = useState("");
   const [error, setError] = useState("");
-  const [balance, setBalance] = useState(4333.75); // for example 3andna 4333.75 fi compte
+  const [balance, setBalance] = useState(""); // example balance
   const [insufficientBalance, setInsufficientBalance] = useState(false);
 
-  const handleConfirm = () => {
-    // e.preventDefault()
+  const handleConfirm = async (e) => {
+    e.preventDefault();
     if (!phoneNumber) {
       setError("Phone number is required.");
+      return;
     } else if (phoneNumber.length < 10) {
-      setError("write a correct phone number .");
+      setError("Write a correct phone number.");
+      return;
     } else if (!amount) {
       setError("Amount is required.");
+      return;
     } else if (parseFloat(amount) > balance) {
       setError("");
       setInsufficientBalance(true);
+      return;
     } else {
       setError("");
       setInsufficientBalance(false);
       // Proceed with the transfer logic here
       // Update balance and transactions, etc.
       setBalance(balance - parseFloat(amount));
+    }
+
+    // axios
+    try {
+      const res = await axiosBaseURL.post("/account/transfer", {
+        receiver: phoneNumber,
+        amount,
+      });
+      console.log(res.data); 
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -48,7 +64,7 @@ const SendMoney = () => {
             <Link to="/main-profile">
               <div className="text-[#004b95] md:flex-row md:text-nowrap flex font-bold items-center">
                 <IoIosArrowBack className="font-bold text-2xl mt-2" />
-                <p>go back to home page</p>
+                <p>Go back to home page</p>
               </div>
             </Link>
             <div className="mt-4 flex flex-col items-center gap-2 md:mt-14">
@@ -59,7 +75,7 @@ const SendMoney = () => {
                 alt="Profile"
               />
               <input
-                placeholder="enter your contact phone number"
+                placeholder="Enter your contact phone number"
                 className="rounded-xl text-center bg-[#658798] bg-opacity-40 text-sm w-[18rem] p-3 font-bold placeholder:text-[#004b95] placeholder:text-opacity-55"
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}

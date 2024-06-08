@@ -19,6 +19,7 @@ import SuccessRegister from "./authentication/SuccessRegister.jsx";
 import UserSetting from "./profile/UserSetting.jsx";
 import SendMoney from "./profile/SendMoney.jsx";
 import Failed from "./profile/Failed.jsx";
+import AddBalance from "./profile/AddBalance.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -31,6 +32,7 @@ const router = createBrowserRouter(
       <Route path="profile-setting" element={<UserSetting />} />
       <Route path="main-profile" element={<MainProfile />} />
       <Route path="send-money" element={<SendMoney/>}/>
+      <Route path="add-balance" element={<AddBalance/>}/>
       
       <Route path="error" element={<Failed/>}/>
     </Route>
