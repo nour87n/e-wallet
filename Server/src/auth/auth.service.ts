@@ -21,7 +21,7 @@ export class AuthService {
         if (!isMatch) {
             return 'Password is incorrect';
         }
-        const payload = { email: user.email, sub: user._id };
+        const payload = { email: user.email, id: user._id };
         const access_token = this.jwtService.sign(payload);
         res.cookie('access_token', access_token,
             {
@@ -47,7 +47,7 @@ export class AuthService {
             password: password,
             cardNumber: cardNumber
         });
-        const payload = { email: user.email, sub: user._id };
+        const payload = { email: user.email, id: user._id };
         const access_token = this.jwtService.sign(payload);
         res.cookie('access_token', access_token,
             {
