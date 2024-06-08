@@ -26,7 +26,7 @@ export class AuthService {
         res.cookie('access_token', access_token,
             {
                 httpOnly: true,
-                maxAge: 1000 * 60 * 60 * 24 * 30
+                maxAge: 1000 * 60 * 60 * 24 * 30 * 12
             });
         res.send({
             userId: user._id,
@@ -37,7 +37,7 @@ export class AuthService {
         });
     }
 
-    async register(email, phoneNumber, fullName, password , res) {
+    async register(email : string , phoneNumber : number, fullName : string , password , res) {
         //create a random card number have 6 digits
         const cardNumber = Math.floor(100000 + Math.random() * 900000);
         const user = await this.userModel.create({
@@ -52,7 +52,7 @@ export class AuthService {
         res.cookie('access_token', access_token,
             {
                 httpOnly: true,
-                maxAge: 1000 * 60 * 60 * 24 * 30
+                maxAge: 1000 * 60 * 60 * 24 * 30 * 12
         });    
         return {
             userId: user._id,

@@ -1,9 +1,9 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
-import Supported from "../components/Supported";
-import Aboutus from "../components/Aboutus";
-import Footer from "../components/Footer";
+import Navbar from "../../components/Navbar";
+import Hero from "../../components/Hero";
+import Supported from "../../components/Supported";
+import Aboutus from "../../components/Aboutus";
+import Footer from "../../components/Footer";
 
 const Home = () => {
   return (

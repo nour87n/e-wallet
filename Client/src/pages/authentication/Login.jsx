@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Loginimage from "../assets/Loginimage.png";
+import Loginimage from "../../assets/Loginimage.png";
 import { FaApple } from "react-icons/fa";
 import { PiFacebookLogoBold } from "react-icons/pi";
 import { CgMail } from "react-icons/cg";
 import { MdOutlinePhoneAndroid, MdOutlinePassword } from "react-icons/md";
 import { GiWallet } from "react-icons/gi";
-import PhoneHeader from "../components/PhoneHeader";
-import { useLogin } from "../hooks/useLogin";
+import PhoneHeader from "../../components/PhoneHeader";
+import { useLogin } from "../../hooks/useLogin";
 
 const Login = () => {
   const { login, error, loading, setError } = useLogin(); // Destructure setError from useLogin hook

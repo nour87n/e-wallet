@@ -1,17 +1,19 @@
 import React, { useState } from "react";
-import PhoneHeader from "../components/PhoneHeader";
+import PhoneHeader from "../../components/PhoneHeader";
 import { Link } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
-import addmoney from "../assets/addmoney.png";
-import axiosBaseURL from "../axiosBaseURL";
+import addmoney from "../../assets/addmoney.png";
+import axiosBaseURL from "../../axiosBaseURL";
 
 const AddBalance = () => {
   const [addBalance, setAddBalance] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [loading , setLoading] = useState(false);
 
   const handleConfirmation = async (e) => {
     e.preventDefault();
+    setLoading(()=>true)
     try {
       const res = await axiosBaseURL.post(
         "/account/add-balance",
@@ -22,11 +24,13 @@ const AddBalance = () => {
       );
       setSuccessMessage("Balance added successfully.");
       setErrorMessage(""); 
+      setLoading(()=>false)
       console.log(res.data); 
     } catch (error) {
       setErrorMessage("Failed to add balance. Please try again.");
-      setSuccessMessage("");  message
+      setSuccessMessage("");
       console.log(error); 
+      setLoading(()=>false)
     }
   };
 

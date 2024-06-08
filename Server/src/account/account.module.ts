@@ -10,8 +10,10 @@ import { TransactionSchema } from './schemas/transaction.schema';
 
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]),
-  MongooseModule.forFeature([{ name: 'Transaction', schema: TransactionSchema }])],
+  imports: [
+  MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]),
+  MongooseModule.forFeature([{ name: 'Transaction', schema: TransactionSchema }])
+],
   controllers: [AccountController],
   providers: [AccountService],
 })

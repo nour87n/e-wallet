@@ -1,6 +1,6 @@
 import React from "react";
-import PhoneHeader from "../components/PhoneHeader";
-import Authentication from "../assets/Authentication.png";
+import PhoneHeader from "../../components/PhoneHeader";
+import Authentication from "../../assets/Authentication.png";
 import { Link } from "react-router-dom";
 
 const SuccessRegister = () => {

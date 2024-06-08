@@ -4,22 +4,19 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import React from "react";
-import Home from "./Home/Home";
-import Login from "./authentication/Login";
 
-import Register from "./authentication/Register.jsx";
-import RegisterConfirmation from "./authentication/RegisterConfirmation.jsx";
-
-import MainProfile from "./profile/MainProfile.jsx";
-
-
-
-import SuccessRegister from "./authentication/SuccessRegister.jsx";
-import UserSetting from "./profile/UserSetting.jsx";
-import SendMoney from "./profile/SendMoney.jsx";
-import Failed from "./profile/Failed.jsx";
-import AddBalance from "./profile/AddBalance.jsx";
+import {
+  Home,
+  Login,
+  Register,
+  RegisterConfirmation,
+  SuccessRegister,
+  AddBalance,
+  Failed,
+  MainProfile,
+  SendMoney,
+  UserSetting,
+} from "./pages/index";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -33,7 +30,6 @@ const router = createBrowserRouter(
       <Route path="main-profile" element={<MainProfile />} />
       <Route path="send-money" element={<SendMoney/>}/>
       <Route path="add-balance" element={<AddBalance/>}/>
-      
       <Route path="error" element={<Failed/>}/>
     </Route>
   )

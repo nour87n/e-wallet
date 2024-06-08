@@ -1,33 +1,38 @@
 import React, { useState, useEffect } from "react";
-import PhoneFooter from "../components/PhoneFooter";
-import profileimage from "../assets/profileimage.jpg";
+import PhoneFooter from "../../components/PhoneFooter";
+import profileimage from "../../assets/profileimage.jpg";
 import { FiSettings } from "react-icons/fi";
 import { LuArrowUpToLine, LuArrowDownToLine } from "react-icons/lu";
 import { FaMoneyBillTransfer } from "react-icons/fa6";
-import PhoneHeader from "../components/PhoneHeader";
+import PhoneHeader from "../../components/PhoneHeader";
 import { Link } from "react-router-dom";
-import { useAuthContext } from "../hooks/useAuthContext";
-import axiosBaseURL from "../axiosBaseURL";
+import { useAuthContext } from "../../hooks/useAuthContext";
+import axiosBaseURL from "../../axiosBaseURL";
 
 const MainProfile = () => {
   const [balance, setBalance] = useState("");
   const [username, setUserName] = useState("");
-  const [transactions, setTransactions] = useState("");
+  const [transactions, setTransactions] = useState([]);
   const { state, dispatch } = useAuthContext();
+  const { user } = state;
+  const fetchData = async () => {
+    try {
+      const res = await axiosBaseURL.get("/account/check-balance", {
+        withCredentials: true,
+      });
+      setBalance(res.data.balance);
+      const res2 = await axiosBaseURL.get("/account/transactions",{
+        withCredentials: true,
+      });
+      setTransactions(() => res2.data.transactions)
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axiosBaseURL.get("/account/check-balance", {
-          withCredentials: true,
-        });
-        setBalance(res.data.balance);
-      } catch (error) {
-        console.log(error);
-      }
-    };
     fetchData();
-  });
-  // console.log(state);
+  },[]);
 
   return (
     <div className="h-screen w-screen">
@@ -46,7 +51,7 @@ const MainProfile = () => {
               <div className="flex flex-col pr-[14rem]">
                 <p className="text-white text-wrap text-lg font-bold">Hello,</p>
                 <p className="text-white text-wrap text-lg font-bold">
-                  {state.user.fullName}
+                  {user.fullName}
                 </p>
               </div>
               <Link to="/profile-setting">
@@ -88,12 +93,14 @@ const MainProfile = () => {
       {/* bottom */}
       <div className="custom-container mt-3">
         <p className="font-bold text-2xl text-[#004b95]">Last transactions:</p>
-        <ul>
-          {/* {transactions.map((transaction) => (
-            <li key={transaction.id} className="text-[#004b95]">
-              {transaction.type}: ${transaction.amount}
+        <ul className=" flex gap-8">
+          {transactions?.map((transaction) => (
+            <li key={transaction.id} className="text-[#004b95] flex justify-center items-center text-center">
+              {transaction.receiverId.fullName}
+              <br />
+              {transaction.amount}
             </li>
-          ))} */}
+          ))}
         </ul>
       </div>
       <PhoneFooter />

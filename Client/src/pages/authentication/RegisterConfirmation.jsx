@@ -1,8 +1,8 @@
 import React from "react";
 import { GiWallet } from "react-icons/gi";
-import login from "../assets/login.png";
-import PhoneFooter from "../components/PhoneFooter";
-import PhoneHeader from "../components/PhoneHeader";
+import login from "../../assets/login.png";
+import PhoneFooter from "../../components/PhoneFooter";
+import PhoneHeader from "../../components/PhoneHeader";
 const RegisterConfirmation = () => {
   return (
     <div className="bg-[#e0e5e7]  h-screen text-[#004b95]">

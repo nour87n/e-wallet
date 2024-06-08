@@ -1,8 +1,8 @@
 import React from "react";
-import PhoneHeader from "../components/PhoneHeader";
+import PhoneHeader from "../../components/PhoneHeader";
 import { Link } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
-import error from "../assets/error.png";
+import error from "../../assets/error.png";
 const Failed = () => {
   return (
     <div className="bg-[#e0e5e7] h-full pb-2">

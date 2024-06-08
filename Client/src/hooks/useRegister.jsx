@@ -24,7 +24,7 @@ const useRegister = () => {
       }
     );
     console.log(response);
-    dispatch({ type: "Register", payload: response.data });
+    dispatch({ type: "REGISTER", payload: response.data });
     localStorage.setItem("user", JSON.stringify(response.data));
     navigate("/main-profile");
   };

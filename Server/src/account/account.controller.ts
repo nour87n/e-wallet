@@ -1,4 +1,5 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete ,Res } from '@nestjs/common';
+import { Response } from 'express';
 import { AccountService } from './account.service';
 
 
@@ -18,7 +19,12 @@ export class AccountController {
   }
 
   @Post('transfer')
-  transfer(@Body('user') user: any,@Body('receiver') receiver: any, @Body('amount') amount: number) {
-    return this.accountService.transfer(user,receiver, amount);
+  transfer(@Body('user') user: any,@Body('receiver') receiver: any, @Body('amount') amount: number,@Res() res: Response) {
+    return this.accountService.transfer(user, receiver, amount, res);
+  }
+
+  @Get('transactions')
+  getTransactions(@Body('user') user: any, @Res() res: Response) {
+    return this.accountService.lastTransactions(user,res);
   }
 }

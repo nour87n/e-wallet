@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import PhoneHeader from "../components/PhoneHeader";
+import React, { useState , useEffect } from "react";
+import PhoneHeader from "../../components/PhoneHeader";
 import { IoIosArrowBack } from "react-icons/io";
-import girlprofilepic from "../assets/girlprofilepic.png";
+import girlprofilepic from "../../assets/girlprofilepic.png";
 import { Link } from "react-router-dom";
-import PhoneFooter from "../components/PhoneFooter";
-import machine from "../assets/machine.png";
-import Failed from "../profile/Failed";
-import axiosBaseURL from "../axiosBaseURL";
+import PhoneFooter from "../../components/PhoneFooter";
+import machine from "../../assets/machine.png";
+import Failed from "./Failed";
+import axiosBaseURL from "../../axiosBaseURL";
 
 const SendMoney = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -14,9 +14,26 @@ const SendMoney = () => {
   const [error, setError] = useState("");
   const [balance, setBalance] = useState(""); // example balance
   const [insufficientBalance, setInsufficientBalance] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false); 
+
+  const checkBalance = async () => {
+    try {
+      const res = await axiosBaseURL.get("/account/check-balance", {
+        withCredentials: true,
+      });
+      setBalance(res.data.balance);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  useEffect(() => {
+    checkBalance();
+  },[])
 
   const handleConfirm = async (e) => {
     e.preventDefault();
+    setLoading(()=>true)
     if (!phoneNumber) {
       setError("Phone number is required.");
       return;
@@ -33,20 +50,23 @@ const SendMoney = () => {
     } else {
       setError("");
       setInsufficientBalance(false);
-      // Proceed with the transfer logic here
-      // Update balance and transactions, etc.
       setBalance(balance - parseFloat(amount));
     }
 
     // axios
     try {
       const res = await axiosBaseURL.post("/account/transfer", {
-        receiver: phoneNumber,
+        receiver: +phoneNumber,
         amount,
+      },{
+        withCredentials: true,
       });
-      console.log(res.data); 
+      setSuccess(()=>true)
+      setLoading(()=>false)
     } catch (error) {
       console.error(error);
+      setError(()=>error.response.data);
+      setLoading(() => false)
     }
   };
 
@@ -74,6 +94,11 @@ const SendMoney = () => {
                 src={girlprofilepic}
                 alt="Profile"
               />
+              {
+                success ?
+              <p className="text-xl font-bold text-green-500">the Money transfer with success</p> 
+              : null
+              }
               <input
                 placeholder="Enter your contact phone number"
                 className="rounded-xl text-center bg-[#658798] bg-opacity-40 text-sm w-[18rem] p-3 font-bold placeholder:text-[#004b95] placeholder:text-opacity-55"
@@ -96,7 +121,8 @@ const SendMoney = () => {
                 className="text-[#fef6ee] mt-5 w-[12rem] rounded-md p-2 bg-[#5d439e] hover:bg-[#9762c9]"
                 onClick={handleConfirm}
               >
-                Confirm
+                {
+                  loading ? "Loading..." : "CONFIRM"}
               </button>
             </div>
           </div>

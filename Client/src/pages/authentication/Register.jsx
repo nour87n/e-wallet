@@ -3,9 +3,9 @@ import { GiWallet } from "react-icons/gi";
 import { FaApple } from "react-icons/fa";
 import { PiFacebookLogoBold } from "react-icons/pi";
 import { CgMail } from "react-icons/cg";
-import registerImg from "../assets/register.png";
-import PhoneHeader from "../components/PhoneHeader";
-import useRegister from "../hooks/useRegister";
+import registerImg from "../../assets/register.png";
+import PhoneHeader from "../../components/PhoneHeader";
+import useRegister from "../../hooks/useRegister";
 
 const Register = () => {
   const [fullName, setFullName] = useState("");
@@ -13,7 +13,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [phoneNumber , setPhoneNumber] = useState("");
   const [error, setError] = useState("");
-  const {register , setLoading} = useRegister()
+  const {register } = useRegister()
 
   const handleRegister = async () => {
     if (!fullName) {
@@ -24,11 +24,21 @@ const Register = () => {
       setError("Email address is invalid.");
     } else if (!password) {
       setError("Password is required.");
+    } else if (!phoneNumber) {
+      setError("Phone number is required.");
+      // is number or not
+    } else if (Number.isNaN(phoneNumber)){
+      setError("Phone number should be a number.")
     } else {
       setError("");
-      // Proceed with the registration logic here
       console.log(email, password, fullName, phoneNumber)
-      await register(email, password, fullName, phoneNumber)
+      try {
+        await register(email, password, fullName, phoneNumber) 
+      }
+      catch (error) {
+        console.error(error)
+        setError(()=>error.response.data.message)
+      }
     }
   };
 
