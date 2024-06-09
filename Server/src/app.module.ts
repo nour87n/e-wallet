@@ -10,7 +10,7 @@ import { AccountModule } from './account/account.module';
       envFilePath: '.env',
       isGlobal: true,
     }),
-    MongooseModule.forRoot("mongodb://127.0.0.1:27017"),
+    MongooseModule.forRoot("mongodb+srv://achrafnessighaoui13:blKtHRk7FPw8duqc@cluster0.xgxszyf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"),
     AuthModule,
     AccountModule,
   ],

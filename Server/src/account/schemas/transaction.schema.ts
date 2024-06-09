@@ -2,7 +2,11 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { ObjectId } from 'mongodb';
 import { Document } from 'mongoose';
 
-@Schema()
+@Schema(
+    {
+        timestamps: true
+    }
+)
 export class Transaction extends Document {
     @Prop({
         required: true,
